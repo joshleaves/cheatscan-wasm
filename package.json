@@ -1,0 +1,30 @@
+{
+  "name": "cheatscan-wasm",
+  "version": "0.9.3",
+  "description": "Memory comparison tool",
+  "module": "src/index.ts",
+  "author": "Arnaud 'red' Rouyer",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "imports": {
+    "#src/*": "./src/*",
+    "#types/*": "./types/*",
+    "#test/*": "./test/*"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/bun": "latest",
+    "@types/node": "^25.5.2",
+    "eslint": "10.1.0",
+    "typescript-eslint": "^8.57.2"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
