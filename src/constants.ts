@@ -1,4 +1,4 @@
-import type { Alignment, ComparisonType, Endianness, ValueType } from '#types/Cheatscan.ts'
+import type { Alignment, ComparisonType, Endianness, ValueType } from './types/Cheatscan.d.ts'
 
 export const VALUE_TYPE = {
   u8: 0,
@@ -21,10 +21,16 @@ export const ALIGNMENT = {
 } as const satisfies Record<Alignment, number>
 
 export const CMP = {
-  eq: 0,
-  ne: 1,
-  lt: 2,
-  le: 3,
-  gt: 4,
-  ge: 5,
+  'eq': 0,
+  '==': 0,
+  'ne': 1,
+  '!=': 1,
+  'lt': 2,
+  '<': 2,
+  'le': 3,
+  '<=': 3,
+  'gt': 4,
+  '>': 4,
+  'ge': 5,
+  '>=': 5,
 } as const satisfies Record<ComparisonType, number>

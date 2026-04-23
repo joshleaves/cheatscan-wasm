@@ -2,7 +2,7 @@
 import type {
   CheatscanWasmInstance,
   CheatscanWasmExports
-} from '#types/CheatscanWasm.ts'
+} from './types/CheatscanWasm.d.ts'
 
 const isResponseLike = (value: unknown): value is Response => {
   return typeof Response !== 'undefined' && value instanceof Response
@@ -50,7 +50,7 @@ export const loadWasm = async (
       }
     }
   } catch {
-    // Fallback fichier plus bas
+    // Fallback handled below
   }
 
   const { instance } = await instantiateFromFile(wasmUrl, imports)

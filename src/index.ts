@@ -1,6 +1,6 @@
-import type { ValueType, Endianness, ComparisonType, ScannerConfig } from '#types/Cheatscan.ts'
-import { VALUE_TYPE, ENDIANNESS, ALIGNMENT, CMP } from '#src/constants.ts'
-import { loadWasm } from '#src/wasm.ts'
+import type { ValueType, Endianness, ComparisonType, ScannerConfig } from './types/Cheatscan.d.ts'
+import { VALUE_TYPE, ENDIANNESS, ALIGNMENT, CMP } from './constants.ts'
+import { loadWasm } from './load-wasm.ts'
 const wasm = await loadWasm()
 const e = wasm.exports
 

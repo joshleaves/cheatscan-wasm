@@ -1,5 +1,5 @@
 {
-  "name": "cheatscan-wasm",
+  "name": "cheatscan",
   "version": "0.9.3",
   "description": "Memory comparison tool",
   "module": "src/index.ts",
@@ -7,24 +7,28 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "build": "rm -rf dist && tsc && cp src/*.wasm dist/",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
-  "imports": {
-    "#src/*": "./src/*",
-    "#types/*": "./types/*",
-    "#test/*": "./test/*"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
+  "files": ["dist"],
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/bun": "latest",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.6.0",
     "eslint": "10.1.0",
-    "typescript-eslint": "^8.57.2"
-  },
-  "peerDependencies": {
-    "typescript": "^6.0.2"
+    "fast-check": "^4.7.0",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^4.1.4",
+    "typescript": "^6.0.3"
   }
 }
