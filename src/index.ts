@@ -4,7 +4,6 @@ import { loadWasm } from './load-wasm.ts'
 const wasm = await loadWasm()
 const e = wasm.exports
 
-
 export class Cheatscan {
   #scanner: number
   #valueType: ValueType
@@ -119,7 +118,7 @@ export class Cheatscan {
     return e.cheatscan_count(this.#scanner)
   }
 
-  results(offset: number | undefined, count: number | undefined): number[] {
+  results(offset?: number, count?: number): number[] {
     this.#ensureAlive()
 
     const total = e.cheatscan_count(this.#scanner)
@@ -148,7 +147,7 @@ export class Cheatscan {
     try {
       e.cheatscan_write_results(this.#scanner, ptr, count, offset)
       const view = new Uint32Array(e.memory.buffer, ptr, count)
-      return Array.from(view)
+      return [...view]
     } finally {
       e.cheatscan_ramblock_free(ptr, byteSize)
     }

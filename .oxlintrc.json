@@ -1,0 +1,62 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "oxc",
+  ],
+  "jsPlugins": ["@stylistic/eslint-plugin"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "style": "error"
+  },
+  "rules": {
+    "eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "typescript/no-explicit-any": "error",
+    "@stylistic/indent": ["error", 2],
+    "@stylistic/linebreak-style": ["error", "unix"],
+    "@stylistic/no-trailing-spaces": "error",
+    "@stylistic/padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "block-like", "next": "*" }
+    ],
+    "@stylistic/quotes": ["error", "single"],
+    "@stylistic/semi": ["error", "never"],
+    "arrow-body-style": "allow",
+    "capitalized-comments": "allow",
+    "consistent-type-definitions": "allow",
+    "curly": "allow",
+    "filename-case":"allow",
+    "id-length": "allow",
+    "init-declarations": "allow",
+    "max-lines-per-function": "allow",
+    "max-params": "allow",
+    "max-statements": "allow",
+    "no-magic-numbers": "allow",
+    "no-warning-comments": "allow",
+    "numeric-separators-style":"allow",
+    "prefer-spread": "allow",
+    "relative-url-style": "allow",
+    "sort-imports": "allow",
+    "sort-keys": "allow",
+    "switch-case-braces": "allow"
+    
+  },
+  "env": {
+    "builtin": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "test/**/*.ts"
+      ],
+      "rules": {
+        "max-lines": "allow"
+      }
+    }
+  ]
+}

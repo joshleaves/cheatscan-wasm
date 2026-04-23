@@ -5,7 +5,9 @@
     // Environment setup & latest features
     "lib": [
       "dom",
-      "ESNext"
+      "ESNext",
+      "esnext",
+      "ESNext.Disposable"
     ],
     "types": ["node"],
     "rootDir": "src",
